@@ -29,6 +29,7 @@ __include: moqi.yaml:/reverse #反查配置
 __include: moqi.yaml:/opencc_config # 拆分 英汉互译 火星文
 __include: moqi.yaml:/punctuator # 标点
 __include: moqi.yaml:/guide # 引导前缀配置
+__include: moqi.yaml:/menu
 
 speller:
   max_code_length: 5
@@ -168,12 +169,12 @@ key_binder:
   import_preset: default
   bindings:
     #- { when: composing, accept: Tab, send: '[' } ## 取消注释后：tab引导辅助码
-    - { when: composing, accept: Control+m, send: Return }
-    - { when: composing, accept: Control+w, send: Control+BackSpace }
-    - { when: has_menu, accept: semicolon, send: 2 }
+    #- { when: composing, accept: Control+m, send: Return }
+    #- { when: composing, accept: Control+w, send: Control+BackSpace }
+    #- { when: has_menu, accept: semicolon, send: 2 } # 用;进行选2
     # - { when: has_menu, accept: slash, send: 3 } # 用/进行选3
-    - { when: composing, accept: Control+i, send: Shift+Right }
-    - { when: composing, accept: Control+o, send: Shift+Left }
+    #- { when: composing, accept: Control+i, send: Shift+Right }
+    #- { when: composing, accept: Control+o, send: Shift+Left }
 
     # 大小字集切换
     - { when: has_menu, accept: "Control+u", toggle: big_char_set }
@@ -182,10 +183,10 @@ key_binder:
     - { when: has_menu, accept: "Control+l", toggle: chaifen_all }
     - { when: has_menu, accept: "Control+e", toggle: chinese_english }
 
-
-    - { match: "[a-z]{1,3}", accept: Tab,  send_sequence: "/1" }
-    - { match: "[a-z]{1,3}", accept: "/",  send_sequence: "/1" }
-    - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" }
+    # 长度3以内的常见词，快速上屏
+    - { match: "[a-z]{1,3}", accept: Tab,  send_sequence: "/1" } # 使用Tab选择缩打词组
+    #- { match: "[a-z]{1,3}", accept: "/",  send_sequence: "/1" }
+    #- { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" }
     # - { when: composing, match: "[a-z]{2}", accept: Tab, send: '|' }
 
     ## 启用光标回退至特定音节后、补充辅助码的功能。补充完辅助码后，可以再按一次tab回到整句检查

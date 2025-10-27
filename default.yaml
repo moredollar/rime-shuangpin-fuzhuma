@@ -128,20 +128,21 @@ key_binder:
     # - { when: has_menu, accept: Tab, send: Page_Down }
 
     # Option/Alt + ←/→ 切换光标至下/上一个拼音
-    - { when: composing, accept: Alt+Left, send: Shift+Left }
-    - { when: composing, accept: Alt+Right, send: Shift+Right }
+    #- { when: composing, accept: Alt+Left, send: Shift+Left }
+    #- { when: composing, accept: Alt+Right, send: Shift+Right }
 
     # 翻页 - =
-    - { when: has_menu, accept: minus, send: Page_Up }
-    - { when: has_menu, accept: equal, send: Page_Down }
+    #- { when: has_menu, accept: minus, send: Page_Up }
+    #- { when: has_menu, accept: equal, send: Page_Down }
 
-    # 翻页 , .
-    # - { when: paging, accept: comma, send: Page_Up }
-    # - { when: has_menu, accept: period, send: Page_Down }
-
+    # 翻页 , . （按一次.会影响后续辅助码输入）
+    - { when: paging, accept: comma, send: Page_Up }
+    - { when: has_menu, accept: period, send: Page_Down }
     # 翻页 [ ]
-    # - { when: paging, accept: bracketleft, send: Page_Up }
-    # - { when: has_menu, accept: bracketright, send: Page_Down }
+    #- { when: paging, accept: bracketleft, send: Page_Up }
+    #- { when: has_menu, accept: bracketright, send: Page_Down }
+
+    # 翻页 
 
     # 两种按键配置，鼠须管 Control+Shift+4 生效，小狼毫 Control+Shift+dollar 生效，都写上了。
     # numbered_mode_switch:
@@ -182,21 +183,21 @@ key_binder:
     # 将小键盘 0~9 . + - * / 映射到主键盘
     # 使计算器(V1+2*3)可使用小键盘输入
     # 数字金额大写的 Lua 如 R1234.5678 可使用小键盘输入
-    - {accept: KP_0, send: 0, when: composing}
-    - {accept: KP_1, send: 1, when: composing}
-    - {accept: KP_2, send: 2, when: composing}
-    - {accept: KP_3, send: 3, when: composing}
-    - {accept: KP_4, send: 4, when: composing}
-    - {accept: KP_5, send: 5, when: composing}
-    - {accept: KP_6, send: 6, when: composing}
-    - {accept: KP_7, send: 7, when: composing}
-    - {accept: KP_8, send: 8, when: composing}
-    - {accept: KP_9, send: 9, when: composing}
-    - {accept: KP_Decimal,  send: period  , when: composing}
-    - {accept: KP_Multiply, send: asterisk, when: composing}
-    - {accept: KP_Add,      send: plus,     when: composing}
-    - {accept: KP_Subtract, send: minus,    when: composing}
-    - {accept: KP_Divide,   send: slash,    when: composing}
+    #- {accept: KP_0, send: 0, when: composing}
+    #- {accept: KP_1, send: 1, when: composing}
+    #- {accept: KP_2, send: 2, when: composing}
+    #- {accept: KP_3, send: 3, when: composing}
+    #- {accept: KP_4, send: 4, when: composing}
+    #- {accept: KP_5, send: 5, when: composing}
+    #- {accept: KP_6, send: 6, when: composing}
+    #- {accept: KP_7, send: 7, when: composing}
+    #- {accept: KP_8, send: 8, when: composing}
+    #- {accept: KP_9, send: 9, when: composing}
+    #- {accept: KP_Decimal,  send: period  , when: composing}
+    #- {accept: KP_Multiply, send: asterisk, when: composing}
+    #- {accept: KP_Add,      send: plus,     when: composing}
+    #- {accept: KP_Subtract, send: minus,    when: composing}
+    #- {accept: KP_Divide,   send: slash,    when: composing}
 
 recognizer:
   patterns:
