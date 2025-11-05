@@ -408,7 +408,6 @@ big_char_and_user_dict:
     spelling_hints: 1
     comment_format:
       - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
-
     enable_user_dict: false # 是否开启自动调频
 
 
@@ -441,7 +440,6 @@ big_char_and_user_dict:
     enable_user_dict: true # 是否开启用户词典
     encode_commit_history: false # 是否对已上屛词自动成词〔仅 table_translator 有效〕
     preedit_format:
-      
     comment_format:
       - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
     prefix: "ac"
